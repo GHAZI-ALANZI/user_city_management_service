@@ -5,6 +5,8 @@ VisualStudioVersion = 17.12.35707.178 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "user-city-management-service", "user-city-management-service\user-city-management-service.csproj", "{F143E3F6-7D41-403A-84D4-A0A9E5B37961}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "user_city_management_service.Tests", "user_city_management_service.Tests\user_city_management_service.Tests.csproj", "{AE96EE43-EA92-49C4-B343-1E415F274F5F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F143E3F6-7D41-403A-84D4-A0A9E5B37961}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F143E3F6-7D41-403A-84D4-A0A9E5B37961}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F143E3F6-7D41-403A-84D4-A0A9E5B37961}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE96EE43-EA92-49C4-B343-1E415F274F5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE96EE43-EA92-49C4-B343-1E415F274F5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE96EE43-EA92-49C4-B343-1E415F274F5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE96EE43-EA92-49C4-B343-1E415F274F5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
