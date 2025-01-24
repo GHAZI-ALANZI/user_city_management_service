@@ -1,0 +1,195 @@
+﻿{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "User Management API",
+    "version": "v1",
+    "description": "API for user authentication and management, including login, registration, user retrieval, and user banning/deletion operations."
+  },
+  "paths": {
+    "/api/auth/login": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Authenticate user and return JWT token",
+        "requestBody": {
+          "description": "User credentials for authentication",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful authentication"
+          },
+          "401": {
+            "description": "Invalid credentials"
+          }
+        }
+      }
+    },
+    "/api/users/register": {
+      "post": {
+        "tags": ["User"],
+        "summary": "Register a new user",
+        "requestBody": {
+          "description": "User details for registration",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "User registered successfully"
+          },
+          "400": {
+            "description": "Invalid request data"
+          }
+        }
+      }
+    },
+    "/api/users/all": {
+      "get": {
+        "tags": ["User"],
+        "summary": "Retrieve all registered users",
+        "responses": {
+          "200": {
+            "description": "List of users retrieved successfully"
+          }
+        }
+      }
+    },
+    "/api/users/delete/{username}": {
+      "delete": {
+        "tags": ["User"],
+        "summary": "Delete a user by username",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User deleted successfully"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/api/users/ban/{username}": {
+      "post": {
+        "tags": ["User"],
+        "summary": "Ban a user by username",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User banned successfully"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/api/users/unban/{username}": {
+      "post": {
+        "tags": ["User"],
+        "summary": "Unban a user by username",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User unbanned successfully"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "LoginRequest": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "RegisterRequest": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "role": {
+            "$ref": "#/components/schemas/Role"
+          }
+        }
+      },
+      "Role": {
+        "type": "integer",
+        "format": "int32",
+        "enum": [
+          0, 1
+        ],
+        "description": "User role, where 0 represents a regular user and 1 represents an admin."
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "scheme": "Bearer",
+        "description": "JWT Bearer token authentication"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": []
+    }
+  ]
+}
