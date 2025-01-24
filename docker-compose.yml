@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  db:
+    container_name: sql_server
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "YourStrong!Passw0rd"
+      ACCEPT_EULA: "Y"
+    volumes:
+      - sql_data:/var/opt/mssql
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    restart: always
+    command: >
+      /bin/bash -c "
+      /opt/mssql/bin/sqlservr & 
+      sleep 20 && 
+      /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P YourStrong!Passw0rd -d master -i /docker-entrypoint-initdb.d/init-db.sql
+      wait"
+      
+  usermanagementapi:
+    container_name: user_management_api
+    build:
+      context: .
+      dockerfile: ./UserManagementAPI/Dockerfile
+    image: usermanagementapi:latest
+    ports:
+      - "5000:8080"
+      - "5001:443"
+    depends_on:
+      - db
+    restart: always
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=db;Database=UserManagementDB;User Id=sa;Password=YourStrong!Passw0rd;TrustServerCertificate=True;
+      - ASPNETCORE_URLS=http://+:8080
+
+volumes:
+  sql_data:

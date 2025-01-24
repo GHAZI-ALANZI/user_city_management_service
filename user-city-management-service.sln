@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "user-city-management-servic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "user_city_management_service.Tests", "user_city_management_service.Tests\user_city_management_service.Tests.csproj", "{AE96EE43-EA92-49C4-B343-1E415F274F5F}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{5731F1E9-4CF0-4A8C-ADDC-53EADC8B649D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AE96EE43-EA92-49C4-B343-1E415F274F5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE96EE43-EA92-49C4-B343-1E415F274F5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE96EE43-EA92-49C4-B343-1E415F274F5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5731F1E9-4CF0-4A8C-ADDC-53EADC8B649D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5731F1E9-4CF0-4A8C-ADDC-53EADC8B649D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5731F1E9-4CF0-4A8C-ADDC-53EADC8B649D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5731F1E9-4CF0-4A8C-ADDC-53EADC8B649D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
