@@ -19,20 +19,22 @@ User Management API is a **secure RESTful API** built with **ASP.NET Core 8** th
 
 
 ## 📂 **Project Structure**
-SoiutionUserManagementAPI
- │── UserManagementAPI/ 
- │  │
- │  │── Application/ # Business logic (DTOs , Interfaces , Services)
- │  │── Domain/ # Entities, enums
- │  │── Infrastructure/ # Data and Repositories implementations
- │  │── WebAPI/ # Controllers, middleware, authentication
- │  │── README.md # Documentation 
- │  │── docker-compose.yml # Docker setup for API and database 
- │  │── Docker  
- │  │── ApiDocument   # swagger.yaml # OpenAPI documentationyaml
- │
- │── UserManagementAPI.Tests/ # Unit and integration tests
-     │── Controllers
+ UserCityManagementAPI
+ 
+  ── UserManagementAPI/ 
+    
+     ── Application/ # Business logic (DTOs , Interfaces , Services)
+     ── Domain/ # Entities, enums
+     ── Infrastructure/ # Data and Repositories implementations
+     ── WebAPI/ # Controllers, middleware, authentication
+     ── README.md # Documentation 
+     ── docker-compose.yml # Docker setup for API and database 
+     ── Docker  
+     ── ApiDocument   # swagger.yaml # OpenAPI documentationyaml
+ 
+  ── UserManagementAPI.Tests  # Unit and integration tests
+  
+     ── Controllers  
      
 
 
